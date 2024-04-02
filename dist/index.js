@@ -101,8 +101,6 @@ function listReviews(client, externalRepo) {
             ref,
             per_page: 9999999
         });
-        console.log('reviews raw response');
-        console.log(reviews);
         const allReviews = reviews.data
             .map(review => { var _a, _b; return (_b = (_a = review.user) === null || _a === void 0 ? void 0 : _a.login) !== null && _b !== void 0 ? _b : ''; })
             .filter(v => v != '');
@@ -313,8 +311,6 @@ function run() {
             const teamsBranch = core.getInput('teams-branch', { required: false });
             const externalRepo = teamsRepo !== '' ? { repo: teamsRepo, ref: teamsBranch } : undefined;
             const pullRequest = github.context.payload.pull_request;
-            console.log(github.context.sha);
-            core.info('New version 2.02');
             if (pullRequest == null) {
                 core.info('Could not get pull request number from context, exiting');
                 return;
