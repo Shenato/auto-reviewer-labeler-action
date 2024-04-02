@@ -1,0 +1,28 @@
+name: 'Auto reviewer labeler action'
+description: "Add a label based on the reviewers assigned"
+author: '@Shenato'
+inputs:
+  repo-token:
+    required: true
+    description: 'The GITHUB_TOKEN secret'
+  configuration-path:
+    description: 'The path for the label configurations'
+    required: false
+    default: '.github/reviewer_labels.yml'
+  config-repo:
+    description: 'Get the label config from another repo'
+    required: false
+    default: ''
+  config-repo-branch:
+    description: 'To get the label config from another repo, specify the branch'
+    required: false
+    default: ''
+outputs:
+  reviewer_labels:
+    description: 'JSON array of labels based on the reviewers'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: 'users'
+  color: 'blue'
