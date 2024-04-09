@@ -13,7 +13,6 @@ import {
   addPrLabels,
   mapLabelConfigTeamsToUsers
 } from './github'
-import {FailureResponse, ReviewResponse} from './types'
 
 async function run() {
   try {
